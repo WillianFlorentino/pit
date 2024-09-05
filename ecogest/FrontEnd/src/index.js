@@ -14,13 +14,18 @@ import CadTipoMaq from './Paginas/TipoMaquinario/CadTipoMaq';
 import Login from './Componentes/Login';
 import ProtectedRoute from './Componentes/ProtectedRoute';
 import App from './App';
-
+import Register from './Componentes/Register';
 
 const router = createBrowserRouter(
   [
     {
       path: '/login', 
       element: <App />
+    },
+
+    {
+      path: '/register',
+      element: <Register /> // Adicionar a rota para Register
     },
     {
       element: <NavBar />, 

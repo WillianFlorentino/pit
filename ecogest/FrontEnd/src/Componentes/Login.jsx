@@ -41,7 +41,7 @@ function Login() {
           <div className="input-box">
             <input
               type="text"
-              placeholder="Nome"
+              placeholder="E-mail"
               value={username}
               onChange={(e) => setUserName(e.target.value)}
             />
