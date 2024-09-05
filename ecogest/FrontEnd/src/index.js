@@ -19,14 +19,23 @@ import Register from './Componentes/Register';
 const router = createBrowserRouter(
   [
     {
-      path: '/login', 
-      element: <App />
+      path: '/', 
+      element: <App />,
+      loader: () => { 
+        window.location.replace('/Login');
+        return null;
+      }
     },
 
     {
       path: '/register',
-      element: <Register /> // Adicionar a rota para Register
+      element: <Register /> 
     },
+    {
+      path: '/login', 
+      element: <App />
+    },
+    
     {
       element: <NavBar />, 
       children: [
@@ -37,17 +46,17 @@ const router = createBrowserRouter(
 
         {
           path:'/Componentes',
-          element: <Home/>
+          element: <ProtectedRoute> <Home/> </ProtectedRoute> 
         },
 
         {
           path:'/AtivSustentaveis',
-          element:<CadAtivSust></CadAtivSust>
+          element:<ProtectedRoute> <CadAtivSust/> </ProtectedRoute>
         },
 
         {
           path:'/AtivSustentaveis/:idAtividade',
-          element:<CadAtivSust></CadAtivSust>
+          element:<ProtectedRoute> <CadAtivSust/> </ProtectedRoute>
         },
 
         {
@@ -65,27 +74,27 @@ const router = createBrowserRouter(
         },
         {
           path: '/TiposDeMaquinario',
-          element: <CadTipoMaq></CadTipoMaq>
+          element: <ProtectedRoute> <CadTipoMaq/> </ProtectedRoute>
         },
         {         
           path:'/TiposDeMaquinario/:idTiposDeMaquinario',
-          element:<CadTipoMaq></CadTipoMaq>       
+          element:<ProtectedRoute> <CadTipoMaq/> </ProtectedRoute>     
         },
         {
           path: '/Maquinario',
-          element: <Maquinario></Maquinario>
+          element: <ProtectedRoute> <Maquinario/> </ProtectedRoute>
         },
         {         
           path:'/maquinario/:idMaquinario',
-          element:<Maquinario></Maquinario>       
+          element:<ProtectedRoute> <Maquinario/> </ProtectedRoute>      
         },
         {         
           path:'/TiposDeServico',
-          element:<CadTiposServ></CadTiposServ>     
+          element:<ProtectedRoute> <CadTiposServ/> </ProtectedRoute> 
         },
         {         
           path:'/TiposDeServico/:idServico',
-          element:<CadTiposServ></CadTiposServ>     
+          element:<ProtectedRoute> <CadTiposServ/> </ProtectedRoute>    
         }
       ]
     }
